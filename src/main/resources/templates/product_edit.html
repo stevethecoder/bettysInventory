@@ -14,7 +14,7 @@
 	<input type="hidden" th:field="*{id}"/>
 
   <div class="form-group">
-    <label for="">First Name</label>
+    <label for="productId">Product ID</label>
     <input type="text" name="productId" class="form-control" placeholder="Product ID" th:field="*{productId}" />
   	<span th:if="${#fields.hasErrors('productId')}" th:errors="*{productId}">Product ID</span>
   </div>
@@ -22,19 +22,19 @@
   <div class="form-group">
     <label for="productName">Product Name</label>
     <input type="text" name="productName" class="form-control" placeholder="Product Name" th:field="*{productName}" />
-  	<span th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Last Name Error</span>
+  	<span th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Product Name Error</span>
   </div>
 
   <div class="form-group">
     <label for="productManufacturer">Product Manufacturer</label>
     <input type="text" name="productManufacturer" class="form-control" placeholder="ProductManufacturer" th:field="*{productManufacturer}" />
-    <span th:if="${#fields.hasErrors('productManufacturer')}" th:errors="*{productManufacturer}">Product Manufacturer</span>
+    <span th:if="${#fields.hasErrors('productManufacturer')}" th:errors="*{productManufacturer}">Product Manufacturer Error</span>
   </div>
 
   <div class="form-group">
     <label for="productPrice">Price</label>
     <input type="text" name="productPrice" class="form-control" placeholder="Product Price" th:field="*{productPrice}" />
-  	<span th:if="${#fields.hasErrors('productPrice')}" th:errors="*{productPrice}">Product Price</span>
+  	<span th:if="${#fields.hasErrors('productPrice')}" th:errors="*{productPrice}">Product Price Error</span>
   </div>
 
  <div class="form-group"> 

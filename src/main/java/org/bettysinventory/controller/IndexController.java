@@ -5,9 +5,11 @@ import java.io.IOException;
 import javax.validation.Valid;
 
 import org.bettysinventory.beans.Product;
+import org.bettysinventory.beans.ProductImage;
+import org.bettysinventory.repository.ProductImageRepository;
 import org.bettysinventory.repository.ProductRepository;
-import org.elevenfifty.java301.beans.User;
-import org.elevenfifty.java301.beans.UserImage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,29 +26,48 @@ public class IndexController {
 
 	@Autowired
 	private ProductRepository productRepo;
+
+	@Autowired
+	private ProductImageRepository productImageRepo;
 	
-	@GetMapping("")
-	public String index(Model model) {
-		return "index";
+//	@GetMapping("")
+//	public String index(Model model) {
+//		return "index";
+//	}
+	
+	@GetMapping("/login")
+	public String login(Model model) {
+		return "login";
+	}
+
+	@GetMapping(path = { "/home", "/", "" })
+	public String home(Model model) {
+		model.addAttribute("users", productRepo.findAll());
+		return "home";
 	}
 	
 	@GetMapping("/product/{id}")
-	public String product(Model model, @PathVariable(name = "id") long id) {
+	public String product(Model model, @PathVariable(name = "id") int id) {
 		model.addAttribute("id", id);
 		Product p = productRepo.findOne(id);
 		model.addAttribute("product", p);
+		
+		ProductImage i = productImageRepo.findByProductId(id);
+		model.addAttribute("productImage", i);
 		return "product_detail";
 	}
 	
 
 	@GetMapping("/product/{id}/edit")
-	public String productEdit(Model model, @PathVariable(name = "id") long id) {
+	public String productEdit(Model model, @PathVariable(name = "id") int id) {
 		model.addAttribute("id", id);
 		Product p = productRepo.findOne(id);
 		model.addAttribute("product", p);
 		return "product_edit";
 	}
 
+	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+	
 	@PostMapping("/product/{id}/edit")
 	public String productEditSave(@PathVariable(name = "id") int id, @ModelAttribute @Valid Product product,
 			BindingResult result, Model model, @RequestParam("file") MultipartFile file,
@@ -58,7 +79,7 @@ public class IndexController {
 		} else {
 
 			if (removeImage) {
-				ProductImage image = productImageRepo.findByUserId(id);
+				ProductImage image = productImageRepo.findByProductId(id);
 
 				if (image != null) {
 					productImageRepo.delete(image);
@@ -67,24 +88,26 @@ public class IndexController {
 
 			} else if (file != null && !file.isEmpty()) {
 				try {
-					ProductImage image = productImageRepo.findByUserId(id);
+					ProductImage image = productImageRepo.findByProductId(id);
 
 					if (image == null) {
-						image = new UserImage();
-						image.setUserId(id);
+						image = new ProductImage();
+						image.setProductId(id);
 					}
 					image.setContentType(file.getContentType());
 					image.setImage(file.getBytes());
 
-					userImageRepo.save(image);
+					productImageRepo.save(image);
 					
 				} catch (IOException e) {
 					log.error("Failed to upload file", e);
 				}
 			}
-			userRepo.save(user);
-			return "redirect:/user/" + user.getId();
+			productRepo.save(product);
+			return "redirect:/product/" + product.getId();
 		}
 
 	}
+	
 }
+
