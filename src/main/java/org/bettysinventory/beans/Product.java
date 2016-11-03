@@ -24,7 +24,7 @@ public class Product {
 	@Size(max = 36)
 	private String productManufacturer;
 
-	private double productPrice;
+	private String productPrice;
 
 	public int getId() {
 		return id;
@@ -58,11 +58,11 @@ public class Product {
 		this.productManufacturer = productManufacturer;
 	}
 
-	public double getProductPrice() {
+	public String getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(double productPrice) {
+	public void setProductPrice(String productPrice) {
 		this.productPrice = productPrice;
 	}
 
@@ -74,9 +74,9 @@ public class Product {
 		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
 		result = prime * result + ((productManufacturer == null) ? 0 : productManufacturer.hashCode());
 		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(productPrice);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+//		long temp;
+//		temp = Double.doubleToLongBits(productPrice);
+//		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -106,8 +106,8 @@ public class Product {
 				return false;
 		} else if (!productName.equals(other.productName))
 			return false;
-		if (Double.doubleToLongBits(productPrice) != Double.doubleToLongBits(other.productPrice))
-			return false;
+//		if (Double.doubleToLongBits(productPrice) != Double.doubleToLongBits(other.productPrice))
+//			return false;
 		return true;
 	}
 
