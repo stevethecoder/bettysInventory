@@ -42,7 +42,7 @@ public class IndexController {
 
 	@GetMapping(path = { "/home", "/", "" })
 	public String home(Model model) {
-		model.addAttribute("users", productRepo.findAll());
+		model.addAttribute("products", productRepo.findAll());
 		return "home";
 	}
 	

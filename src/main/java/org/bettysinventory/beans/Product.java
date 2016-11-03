@@ -18,10 +18,10 @@ public class Product {
 	@Size(max = 16)
 	private String productId;
 	
-	@Size(max = 16)
+	@Size(max = 36)
 	private String productName;
 	
-	@Size(max = 16)
+	@Size(max = 36)
 	private String productManufacturer;
 
 	private double productPrice;
