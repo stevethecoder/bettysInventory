@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+
+		<h1>Add New Customer</h1>
+
+		<form method="POST" th:object="${customer}"
+			enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+
+			<div class="form-group">
+				<label for="customerId">customer ID</label> <input type="text"
+					name="customerId" class="form-control" placeholder="customer ID"
+					th:field="*{customerId}" /> <span
+					th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}">customer
+					ID</span>
+			</div>
+
+			<div class="form-group">
+				<label for="customerName">customer Name</label> <input type="text"
+					name="customerName" class="form-control" placeholder="customer Name"
+					th:field="*{customerName}" /> <span
+					th:if="${#fields.hasErrors('customerName')}"
+					th:errors="*{customerName}">customer Name Error</span>
+			</div>
+
+			<div class="form-group">
+				<label for="customerEmail">customer Manufacturer</label> <input
+					type="text" name="customerEmail" class="form-control"
+					placeholder="customerEmail" th:field="*{customerEmail}" />
+				<span th:if="${#fields.hasErrors('customerEmail')}"
+					th:errors="*{customerEmail}">customer Email
+					Error</span>
+			</div>
+
+			<div class="form-group">
+				<label for="customerSince">Suggested Retail Price</label> <input
+					type="text" name="customerSince" class="form-control"
+					placeholder="customer Price" th:field="*{customerSince}" /> <span
+					th:if="${#fields.hasErrors('customerSince')}"
+					th:errors="*{customerSince}">customer Since Error</span>
+			</div>
+
+			<!-- <div class="form-group"> 
+  	<label for="exampleInputFile">File input</label>
+  	<input type="file" name="file"/>
+    <p class="help-block">Example block-level text here.</p>
+  </div>
+  
+  <div class="form-group"> 
+  	<label for="removeImage">Remove Image?</label>
+  	<input type="checkbox" name="removeImage" value="true"/>
+  </div> -->
+
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+	</div>
+
+</body>
+</html>

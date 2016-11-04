@@ -15,3 +15,11 @@ CREATE TABLE IF NOT EXISTS bettysinventory.product_images (
   content_type VARCHAR(45) NOT NULL,
   image BLOB NOT NULL,
   PRIMARY KEY (id));
+  
+CREATE TABLE IF NOT EXISTS bettysinventory.customers (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  customer_id VARCHAR(16) NOT NULL,
+  customer_name VARCHAR(36) NOT NULL,
+  customer_email VARCHAR(36) NOT NULL,
+  customer_since VARCHAR(36) NOT NULL,
+  PRIMARY KEY (id));

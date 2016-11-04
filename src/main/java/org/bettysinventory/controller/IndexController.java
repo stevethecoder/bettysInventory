@@ -30,10 +30,10 @@ public class IndexController {
 	@Autowired
 	private ProductImageRepository productImageRepo;
 	
-//	@GetMapping("")
-//	public String index(Model model) {
-//		return "index";
-//	}
+	@GetMapping("")
+	public String index(Model model) {
+		return "index";
+	}
 	
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -77,7 +77,7 @@ public class IndexController {
         model.addAttribute("id", id);
         Product p = productRepo.findOne(id);
         model.addAttribute("product", p);
-        return "product/product_delete";
+        return "product/product_delete";    
     }
 
     @PostMapping("/product/{id}/delete")
