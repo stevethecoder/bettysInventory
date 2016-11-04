@@ -65,6 +65,44 @@ public class IndexController {
 		model.addAttribute("product", p);
 		return "product_edit";
 	}
+	
+	@GetMapping("/add")
+	public String addProduct(Model model) {
+		model.addAttribute(new Product());
+		return "add_product";
+	}
+	
+	@GetMapping("/product/{id}/delete")
+    public String productDelete(Model model, @PathVariable(name = "id") Integer id) {
+        model.addAttribute("id", id);
+        Product p = productRepo.findOne(id);
+        model.addAttribute("product", p);
+        return "product/product_delete";
+    }
+
+    @PostMapping("/product/{id}/delete")
+    public String productDeleteSave(@PathVariable(name = "id") Integer id, @ModelAttribute @Valid Product product,
+            BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("product", product);
+            return "product/products";
+        } else {
+            productRepo.delete(product);
+            return "redirect:/products";
+        }
+    }
+	
+	@PostMapping("/add")
+	public String addProduct(@ModelAttribute @Valid Product product, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("product", product);
+			return "add_product";
+		} else {
+			productRepo.save(product);
+			return "redirect:/home";
+		}
+	}
 
 	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 	
