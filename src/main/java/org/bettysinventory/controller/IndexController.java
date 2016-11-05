@@ -66,7 +66,7 @@ public class IndexController {
 		return "product_edit";
 	}
 	
-	@GetMapping("/add")
+	@GetMapping("product/{id}/add")
 	public String addProduct(Model model) {
 		model.addAttribute(new Product());
 		return "add_product";
@@ -92,7 +92,7 @@ public class IndexController {
         }
     }
 	
-	@PostMapping("/add")
+	@PostMapping("product/{id}/add")
 	public String addProduct(@ModelAttribute @Valid Product product, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {

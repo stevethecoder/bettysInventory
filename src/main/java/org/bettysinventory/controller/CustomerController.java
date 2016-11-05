@@ -46,7 +46,7 @@ public class CustomerController {
 	}
 	
 	
-	@GetMapping("add_customer")
+	@GetMapping("customer/{id}/add")
 	public String addCustomer(Model model) {
 		model.addAttribute(new Customer());
 		return "add_customer";
@@ -72,7 +72,7 @@ public class CustomerController {
 //        }
 //    }
 	
-	@PostMapping("add_customer")
+	@PostMapping("customer/{id}/add")
 	public String addCustomer(@ModelAttribute @Valid Customer customer, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {

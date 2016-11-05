@@ -17,7 +17,7 @@
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-group">
-				<label for="customerId">customer ID</label> <input type="text"
+				<label for="customerId">Customer ID</label> <input type="text"
 					name="customerId" class="form-control" placeholder="customer ID"
 					th:field="*{customerId}" /> <span
 					th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}">customer
@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="customerName">customer Name</label> <input type="text"
+				<label for="customerName">Customer Name</label> <input type="text"
 					name="customerName" class="form-control" placeholder="customer Name"
 					th:field="*{customerName}" /> <span
 					th:if="${#fields.hasErrors('customerName')}"
@@ -33,7 +33,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="customerEmail">customer Manufacturer</label> <input
+				<label for="customerEmail">Customer Email</label> <input
 					type="text" name="customerEmail" class="form-control"
 					placeholder="customerEmail" th:field="*{customerEmail}" />
 				<span th:if="${#fields.hasErrors('customerEmail')}"
@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="customerSince">Suggested Retail Price</label> <input
+				<label for="customerSince">Customer Since</label> <input
 					type="text" name="customerSince" class="form-control"
 					placeholder="customer Price" th:field="*{customerSince}" /> <span
 					th:if="${#fields.hasErrors('customerSince')}"
