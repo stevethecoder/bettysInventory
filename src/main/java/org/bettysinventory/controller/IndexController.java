@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,11 +35,6 @@ public class IndexController {
 	public String index(Model model) {
 		return "index";
 	}
-	
-	@GetMapping("/login")
-	public String login(Model model) {
-		return "login";
-	}
 
 	@GetMapping(path = { "/home", "/", "" })
 	public String home(Model model) {
@@ -52,9 +48,20 @@ public class IndexController {
 		Product p = productRepo.findOne(id);
 		model.addAttribute("product", p);
 		
-		ProductImage i = productImageRepo.findByProductId(id);
-		model.addAttribute("productImage", i);
+//		ProductImage i = productImageRepo.findByProductId(id);
+//		model.addAttribute("productImage", i);
 		return "product_detail";
+	}
+	
+	@GetMapping("/delete_product/{id}")
+	public String delete_product(Model model, @PathVariable(name = "id") int id) {
+		model.addAttribute("id", id);
+		Product p = productRepo.findOne(id);
+		model.addAttribute("product", p);
+		
+//		ProductImage i = productImageRepo.findByProductId(id);
+//		model.addAttribute("productImage", i);
+		return "delete_product";
 	}
 	
 
@@ -72,25 +79,25 @@ public class IndexController {
 		return "add_product";
 	}
 	
-	@GetMapping("/product/{id}/delete")
-    public String productDelete(Model model, @PathVariable(name = "id") Integer id) {
-        model.addAttribute("id", id);
-        Product p = productRepo.findOne(id);
-        model.addAttribute("product", p);
-        return "product/product_delete";    
-    }
-
-    @PostMapping("/product/{id}/delete")
-    public String productDeleteSave(@PathVariable(name = "id") Integer id, @ModelAttribute @Valid Product product,
-            BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("product", product);
-            return "product/products";
-        } else {
-            productRepo.delete(product);
-            return "redirect:/products";
-        }
-    }
+//	@GetMapping("/product/{id}/delete")
+//    public String productDelete(Model model, @PathVariable(name = "id") Integer id) {
+//        model.addAttribute("id", id);
+//        Product p = productRepo.findOne(id);
+//        model.addAttribute("product", p);
+//        return "delete_product";    
+//    }
+//
+//    @PostMapping("/product/{id}/delete")
+//    public String productDeleteSave(@PathVariable(name = "id") Integer id, @ModelAttribute @Valid Product product,
+//            BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            model.addAttribute("product", product);
+//            return "delete_product";
+//        } else {
+//            productRepo.delete(product);
+//            return "redirect:/products";
+//        }
+//    }
 	
 	@PostMapping("product/{id}/add")
 	public String addProduct(@ModelAttribute @Valid Product product, BindingResult result, Model model) {
