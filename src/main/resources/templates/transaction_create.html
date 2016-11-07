@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Transaction Create</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<div class="row">
+		<h1>Create Transaction</h1>
+		<form method="POST" th:object="${transaction}"
+			enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+			<div class="form-group">
+				<label for="">productId</label> <input type="text" name="productIc"
+					class="form-control" placeholder="Product ID"
+					th:field="*{product.id}" /> <span
+					th:if="${#fields.hasErrors('product.id')}"
+					th:errors="*{product.id}">Product ID</span>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+	</div>
+
+</body>
+</html>
