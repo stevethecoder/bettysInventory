@@ -5,6 +5,10 @@
 <head>
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body layout:fragment="content">
@@ -29,7 +33,7 @@
 					<td th:text="${customer.customerEmail}"></td>
 					<td th:text="${customer.customerSince}"></td>
 					<td><a href="/" th:href="@{|/customer/${customer.id}|}">View</a></td>
-					<td><a href="/" th:href="@{|/customer/${customer.id}|}">Delete</a></td>
+					<td><a href="#" class="glyphicon glyphicon-trash"></a></td>
 				</tr>
 			</tbody>
 		</table>
