@@ -15,14 +15,14 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Size(max = 16)
-	private String customerId;
+	@Size(max = 36)
+	private String firstName;
 	
 	@Size(max = 36)
-	private String customerName;
+	private String lastName;
 	
 	@Size(max = 36)
-	private String customerEmail;
+	private String email;
 
 	@Size(max = 16)
 	private String customerSince;
@@ -35,28 +35,28 @@ public class Customer {
 		this.id = id;
 	}
 
-	public String getCustomerId() {
-		return customerId;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getCustomerEmail() {
-		return customerEmail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getCustomerSince() {
@@ -66,5 +66,7 @@ public class Customer {
 	public void setCustomerSince(String customerSince) {
 		this.customerSince = customerSince;
 	}
+	
+	
 
-}
+	}

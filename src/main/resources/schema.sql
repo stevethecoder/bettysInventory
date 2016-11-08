@@ -23,3 +23,10 @@ CREATE TABLE IF NOT EXISTS bettysinventory.customers (
   customer_email VARCHAR(36) NOT NULL,
   customer_since VARCHAR(36) NOT NULL,
   PRIMARY KEY (id));
+  
+CREATE TABLE IF NOT EXISTS bettysinventory.transactions (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  customer_id VARCHAR(16) NOT NULL,
+  product_id VARCHAR(16) NOT NULL,
+  transaction_date VARCHAR(40) NOT NULL,
+  PRIMARY KEY (id));

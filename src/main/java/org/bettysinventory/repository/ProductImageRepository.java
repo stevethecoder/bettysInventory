@@ -5,9 +5,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductImageRepository extends CrudRepository<ProductImage, Integer> {
+public interface ProductImageRepository extends CrudRepository<ProductImage, Long> {
 	
-	ProductImage findByProductId(Integer id);
+	ProductImage findByProductId(long id);
 	
 	
 }

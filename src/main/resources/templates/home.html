@@ -24,6 +24,8 @@
 					<th>Product Manufacturer</th>
 					<th>Retail Price</th>
 					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,6 +39,9 @@
 				</tr>
 			</tbody>
 		</table>
+		<div th:unless="${product}">
+			<h1>Product not found</h1>
+		</div>
 	</div>
 </body>
 </html>

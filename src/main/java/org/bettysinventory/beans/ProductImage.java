@@ -19,7 +19,7 @@ public class ProductImage {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private int productId;
+	private long productId;
 	private String contentType;
 	@Lob
 	private byte[] image;
@@ -42,11 +42,11 @@ public class ProductImage {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getProductId() {
+	public long getProductId() {
 		return productId;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductId(long id) {
+		this.productId = id;
 	}
 	public String getContentType() {
 		return contentType;

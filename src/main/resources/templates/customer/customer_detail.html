@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+		<div th:if="${customer}">
+			<h1>CUSTOMER Information</h1>
+			<!-- <img id="avatar" src="" th:if="${productImage}"
+				th:src="${productImage.htmlSrc}" alt="Profile Image"
+				title="No Image" /> -->
+
+			<dl class="dl-horizontal">
+				<dt>Customer Number</dt>
+				<dd th:text="${customer.customerId}"></dd>
+				<dt>Customer Name</dt>
+				<dd th:text="${customer.customerName}"></dd>
+				<dt>Email Address</dt>
+				<dd th:text="${customer.customerEmail}"></dd>
+				<dt>Customer Since</dt>
+				<dd th:text="${customer.customerSince}"></dd>
+			</dl>
+
+			<p><a href="/" th:href="@{|/home|}">Return Home</a></p>
+		</div>
+
+		<div th:unless="${customer}">
+			<h1>Product not found</h1>
+		</div>
+	</div>
+</body>
+</html>
+
