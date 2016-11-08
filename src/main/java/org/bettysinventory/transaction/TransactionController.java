@@ -2,6 +2,8 @@ package org.bettysinventory.transaction;
 
 import java.sql.SQLException;
 
+import javax.transaction.Transaction;
+
 import org.bettysinventory.repository.CustomerRepository;
 import org.bettysinventory.repository.ProductRepository;
 import org.bettysinventory.repository.TransactionRepository;
