@@ -26,15 +26,15 @@ public class IndexController {
 	@Autowired
 	private ProductImageRepository productImageRepo;
 	
-	@GetMapping("")
-	public String index(Model model) {
-		return "index";
-	}
+//	@GetMapping("/products")
+//	public String index(Model model) {
+//		return "products";
+//	}
 
-	@GetMapping("/home")
-	public String home(Model model) {
-		return "home";
-	}
+//	@GetMapping("/customers")
+//	public String home(Model model) {
+//		return "customers";
+//	}
 	
 	@GetMapping("/login")
 	public String login(Model model) {

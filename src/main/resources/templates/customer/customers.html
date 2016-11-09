@@ -3,11 +3,11 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Products</title>
+<title>Customers</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
-	<h1>Customers</h1>
+	<h1>CUSTOMER Master List</h1>
 	<a class="btn btn-success" href="/" th:href="@{|/customer/create|}" role="button">Create New Customer</a>
 	<table class="table table-hover">
 		<thead>
@@ -29,8 +29,7 @@
 				<td th:text="${c.customerSince}"></td>
 				<td><a class="btn btn-default" href="/" th:href="@{|/customer/${c.id}}" role="button">View</a></td>
 				<td><a class="btn btn-primary" href="/" th:href="@{|/customer/${c.id}/edit|}" role="button">Edit</a></td>
-				<!--  <td><a class="btn btn-success" href="/" th:href="@{|/customer/${c.id}/delete|}" role="button">Delete</a></td>-->
-				<td><a class="btn btn-success" href="#" class="glyphicon glyphicon-trash" th:href="@{|/customer/${c.id}/delete|}" role="button">Delete</a></td>
+				<td><a class="btn btn-danger" href="/" th:href="@{|/customer/${c.id}/delete|}" role="button">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>
