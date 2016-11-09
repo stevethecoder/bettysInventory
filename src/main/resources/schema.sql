@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS bettysinventory.product_images (
   
 CREATE TABLE IF NOT EXISTS bettysinventory.customers (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  customer_id VARCHAR(16) NOT NULL,
-  customer_name VARCHAR(36) NOT NULL,
-  customer_email VARCHAR(36) NOT NULL,
+  first_name VARCHAR(16) NOT NULL,
+  last_name VARCHAR(36) NOT NULL,
+  email VARCHAR(36) NOT NULL,
   customer_since VARCHAR(36) NOT NULL,
   PRIMARY KEY (id));
   

@@ -14,7 +14,7 @@
 <body layout:fragment="content">
 	<div class="row">
 		<h1>PRODUCT Master List</h1>
-		<a href="product/{id}/add" class="btn">Add New Product</a>
+		<a href="product/{id}/create" class="btn">Add New Product</a>
 
 		<table class="table table-hover">
 			<thead>
@@ -29,13 +29,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="product : ${products}">
-					<td scope="row" th:text="${product.productId}"></td>
-					<td th:text="${product.productName}"></td>
-					<td th:text="${product.productManufacturer}"></td>
-					<td th:text="${product.productPrice}"></td>
-					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a></td>
-					<td><a th:href="@{|/product/${delete_product}|}"><span class="glyphicon glyphicon-trash"></span></a></td>
+				<tr th:each="p : ${products}">
+					<td scope="row" th:text="${p.productId}"></td>
+					<td th:text="${p.productName}"></td>
+					<td th:text="${p.productManufacturer}"></td>
+					<td th:text="${p.productPrice}"></td>
+					<!-- <td><a href="/" th:href="@{|/product/${product.id}|}">View</a></td>
+					<td><a th:href="@{|/product/${delete_product}|}"><span class="glyphicon glyphicon-trash"></span></a></td> -->
 				</tr>
 			</tbody>
 		</table>

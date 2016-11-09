@@ -15,7 +15,7 @@
 
   <div class="form-group">
     <label for="">Product ID</label>
-    <input type="text" name="upc" class="form-control" placeholder="Product ID" th:field="*{productId}" />
+    <input type="text" name="productId" class="form-control" placeholder="Product ID" th:field="*{productId}" />
   	<span th:if="${#fields.hasErrors('productId')}" th:errors="*{productId}">Product ID</span>
   </div>
 

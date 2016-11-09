@@ -40,8 +40,8 @@ import org.springframework.web.multipart.MultipartFile;
 			model.addAttribute("id", id);
 			Product p = productRepo.findOne(id);
 			model.addAttribute("product", p);
-			ProductImage i = productImageRepo.findByProductId(id);
-			model.addAttribute("productImage", i);
+//			ProductImage i = productImageRepo.findByProductId(id);
+//			model.addAttribute("productImage", i);
 			return "product/product_detail";
 		}
 
@@ -53,7 +53,7 @@ import org.springframework.web.multipart.MultipartFile;
 			return "product/product_edit";
 		}
 
-		private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+//		private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 		
 		@PostMapping("/product/{id}/edit")
 		public String productEditSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Product product,
@@ -87,10 +87,10 @@ import org.springframework.web.multipart.MultipartFile;
 			}
 		}
 
-		@GetMapping("/product/add")
+		@GetMapping("/product/create")
 		public String productCreate(Model model) {
 			model.addAttribute(new Product());
-			return "product/add_product";
+			return "product/product_create";
 		}
 
 		@PostMapping("/product/create")
