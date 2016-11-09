@@ -18,14 +18,8 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a th:href="@{/products}">PRODUCT MASTER</a></li>
 				<li role="presentation"><a th:href="@{/customers}">CUSTOMER MASTER</a></li>
-				<li role="presentation"><a th:href="@{/transaction}">TRANSACTIONS</a></li>
-				<li role="presentation"><a th:href="@{/login}">Login</a></li>
+				<li role="presentation"><a th:href="@{/transactions}">TRANSACTIONS</a></li>
 			</ul>
-
-			<form th:action="@{/logout}" method="post" style="display: none;"
-				id="logoutForm" sec:authorize="isAuthenticated()">
-				<input type="submit" value="Log Out" />
-			</form>
 		</div>
 	</div>
 

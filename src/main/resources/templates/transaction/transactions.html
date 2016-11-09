@@ -11,11 +11,11 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>Product ID</th>
 					<th>Customer Last Name</th>
-					<th>Customer Email</th>
+					<th>Product ID</th>
 					<th>Product Name</th>
-					<th>Product Price</th>
+					<th>Purchase Price</th>
+					<th>Date of Transaction</th>
 					
 					
 					<th>&nbsp;</th>
@@ -25,11 +25,11 @@
 			</thead>
 			<tbody>
 				<tr th:each="t : ${transactions}">
-					<td th:text="${t.product.productId}"></td>
  					<td th:text="${t.customer.lastName}"></td>
-					<td th:text="${t.customer.email}"></td>
+					<td th:text="${t.product.productId}"></td>
 					<td th:text="${t.product.productName}"></td>
-					<td th:text="${t.product.productPrice}"></td> 
+					<td th:text="${t.product.productPrice}"></td>
+					<td th:text="${t.transactionDate}"></td> 
 				</tr>
 			</tbody>
 		</table>

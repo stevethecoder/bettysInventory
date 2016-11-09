@@ -39,15 +39,15 @@ public class TransactionController {
 	/*
 	 * Edit Methods
 	 */
-	@GetMapping("/transaction/{id}/edit")
-	public String transactionEdit(Model model, @PathVariable(name = "id") long id) {
-		model.addAttribute("id", id);
+//	@GetMapping("/transaction/{id}/edit")
+//	public String transactionEdit(Model model, @PathVariable(name = "id") long id) {
+//		model.addAttribute("id", id);
 		//Transaction t = transactionRepo.findOne(id);
 		//model.addAttribute("transaction", t);
-		model.addAttribute("customers", customerRepo.findAll());
-		model.addAttribute("products", productRepo.findAll());
-		return "transaction/transaction_edit";
-	}
+//		model.addAttribute("customers", customerRepo.findAll());
+//		model.addAttribute("products", productRepo.findAll());
+//		return "transaction/transaction_edit";
+//	}
 	
 
 	/*
