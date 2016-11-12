@@ -22,32 +22,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class IndexController {
+		
+	@GetMapping("")
+	public String index(Model model) {
+		return "index";
+	}
 
-	@Autowired
-	private ProductImageRepository productImageRepo;
-	
-//	@GetMapping("/products")
-//	public String index(Model model) {
-//		return "products";
-//	}
-
-//	@GetMapping("/customers")
-//	public String home(Model model) {
-//		return "customers";
-//	}
-	
+	@GetMapping("/home")
+	public String home(Model model){
+		return "home";
+	}
 	@GetMapping("/login")
 	public String login(Model model) {
 		return "login";
 	}
-
-
-
-
-	}
-		
-
-	
 	
 
-
+}
