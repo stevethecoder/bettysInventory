@@ -5,10 +5,17 @@
 <head>
 <title>Transaction Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+.table-hover thead tr:hover th, 
+ .table-hover tbody tr:hover td {
+        background-color: #fcccf6;
+}
+</style>
 </head>
 <body layout:fragment="content">
+	<h1>TRANSACTION History</h1>
 	<div class="row">
-		<table class="table table-hover">
+		<table class="table table-hover" >
 			<thead>
 				<tr>
 					<th>Customer Last Name</th>
@@ -16,8 +23,6 @@
 					<th>Product Name</th>
 					<th>Purchase Price</th>
 					<th>Date of Transaction</th>
-					
-					
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
@@ -25,11 +30,11 @@
 			</thead>
 			<tbody>
 				<tr th:each="t : ${transactions}">
- 					<td th:text="${t.customer.lastName}"></td>
+					<td th:text="${t.customer.lastName}"></td>
 					<td th:text="${t.product.productId}"></td>
 					<td th:text="${t.product.productName}"></td>
 					<td th:text="${t.product.productPrice}"></td>
-					<td th:text="${t.transactionDate}"></td> 
+					<td th:text="${t.transactionDate}"></td>
 				</tr>
 			</tbody>
 		</table>
